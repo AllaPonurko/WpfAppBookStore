@@ -13,6 +13,8 @@
         <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="322,106,0,0" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Цена" HorizontalAlignment="Left" Margin="49,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.729" Width="174" FontSize="16"/>
         <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="322,163,0,0" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Жанр" HorizontalAlignment="Left" Margin="49,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.729" Width="174" FontSize="16"/>
+        <TextBox x:Name="txtGenre" HorizontalAlignment="Left" Margin="322,220,0,0" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
 
     </Grid>
 </Window>
