@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WpfAppBookStore.Models;
 
 namespace WpfAppBookStore.DB_BookStore
 {

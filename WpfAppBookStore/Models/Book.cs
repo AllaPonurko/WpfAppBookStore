@@ -19,12 +19,14 @@ namespace WpfAppBookStore.Models
         public double Price { get; set; }
         [Required]
         public string Genre { get; set; }
+        public DateTime dateTime { get; set; }
         public Book()
         {
             Title = Title;
             Author = Author;
             Price = Price;
             Genre = Genre;
+            dateTime = dateTime;
         }
         public override string ToString()
         {
