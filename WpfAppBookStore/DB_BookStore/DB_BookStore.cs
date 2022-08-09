@@ -15,7 +15,8 @@ namespace WpfAppBookStore.DB_BookStore
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;
+                           Database=Db_BookStore.db;Trusted_Connection=True;");
         }
     }
 }
