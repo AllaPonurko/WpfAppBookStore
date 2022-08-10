@@ -9,6 +9,7 @@
         Title="BookView" Height="450" Width="800">
     <Window.CommandBindings>
         <CommandBinding Command="com:WindowCommands.SaveBook" Executed="SaveBook_Executed"/>
+        <CommandBinding Command="com:WindowCommands.Cancle" Executed="Cancle_Executed"/>
     </Window.CommandBindings>
     <Grid>
         <Label Content="Название" HorizontalAlignment="Left" Margin="49,41,0,0" VerticalAlignment="Top" Width="174" FontSize="16"/>
@@ -22,6 +23,7 @@
         <Label Content="Год издания" HorizontalAlignment="Left" Margin="49,277,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.729" Width="174" FontSize="16"/>
         <TextBox x:Name="txtDate" HorizontalAlignment="Left" Margin="322,277,0,0" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Button x:Name="btnSave" Command="com:WindowCommands.SaveBook" Content="Сохранить" HorizontalAlignment="Left" Margin="49,338,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button x:Name="btnCancle" Content="Отменить" HorizontalAlignment="Left" Margin="322,338,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Button x:Name="btnCancle" Command="com:WindowCommands.Cancle"  Content="Отменить" HorizontalAlignment="Left" Margin="322,338,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
+        </Button>
     </Grid>
 </Window>

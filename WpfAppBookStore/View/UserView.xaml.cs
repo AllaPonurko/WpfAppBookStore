@@ -26,8 +26,8 @@ namespace WpfAppBookStore.View
             commandBinding1.Command = WindowCommands.SaveUser;
             commandBinding1.Executed += SaveUser_Executed;
             btnSaveUser.CommandBindings.Add(commandBinding1);
+
         }
-        
         public User user = new User();
         private void SaveUser_Executed(object sender, ExecutedRoutedEventArgs e)
         {

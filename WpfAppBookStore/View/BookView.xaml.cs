@@ -27,27 +27,49 @@ namespace WpfAppBookStore
             command1.Command = WindowCommands.SaveBook;
             command1.Executed += SaveBook_Executed;
             btnSave.CommandBindings.Add(command1);
+            CommandBinding command2 = new CommandBinding();
+            command2.Command = WindowCommands.Cancle;
+            command2.Executed += Cancle_Executed;
+            btnCancle.CommandBindings.Add(command2);
         }
-        public Book book=new Book();
-        
+
+        private void Cancle_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        public Book book = new Book();
+
         private void SaveBook_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if(txtAuthor.Text.Length != 0 ||txtName.Text.Length != 0|| txtGenre.Text.Length != 0
+            try
+            {
+                {
+                    if (txtAuthor.Text.Length != 0 || txtName.Text.Length != 0 || txtGenre.Text.Length != 0
                 || txtPrice.Text.Length != 0 || txtDate.Text.Length != 0)
-            {
-                MessageBox.Show("Не все поля заполнены");
+                    {
+                        MessageBox.Show("Не все поля заполнены");
+                    }
+                    if (txtAuthor.Text.Length != 0 && txtName.Text.Length != 0 && txtGenre.Text.Length != 0
+                        && txtPrice.Text.Length != 0 && txtDate.Text.Length != 0)
+                    {
+                        book.Title = txtName.Text;
+                        book.Author = txtAuthor.Text;
+                        //Genre = txtGenre.Text;
+                        book.Price = Convert.ToDouble(txtPrice.Text);
+                        book.dateTime = Convert.ToDateTime(txtDate);
+                    }
+                }
+                    MainWindow.dB.books.Add(book);
+                    MainWindow.dB.SaveChanges();
+                
+
             }
-            if(txtAuthor.Text.Length!=0&&txtName.Text.Length!=0&&txtGenre.Text.Length!=0
-                &&txtPrice.Text.Length!=0&&txtDate.Text.Length!=0)
+            catch (Exception ex)
             {
-                book.Title = txtName.Text;
-                book.Author = txtAuthor.Text;
-                //Genre = txtGenre.Text;
-                book.Price = Convert.ToDouble(txtPrice.Text);
-                book.dateTime = Convert.ToDateTime(txtDate);
+                MessageBox.Show(ex.Message);
             }
-            MainWindow.dB.books.Add(book);
-            MainWindow.dB.SaveChanges();
+
         }
     }
 }
