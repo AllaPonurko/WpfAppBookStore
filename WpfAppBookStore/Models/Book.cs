@@ -28,11 +28,11 @@ namespace WpfAppBookStore.Models
         /// </summary>
         [Required]   
         public double Price { get; set; }
-        /// <summary>
-        /// поле жанр
-        /// </summary>
-        [Required]
-        public string Genre { get; set; }
+        ///// <summary>
+        ///// поле жанр
+        ///// </summary>
+        //[Required]
+        //public string Genre { get; set; }
         /// <summary>
         /// поле год издания
         /// </summary>
@@ -42,7 +42,6 @@ namespace WpfAppBookStore.Models
             Title = Title;
             Author = Author;
             Price = Price;
-            Genre = Genre;
             dateTime = dateTime;
         }
         public override string ToString()

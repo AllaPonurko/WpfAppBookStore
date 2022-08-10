@@ -29,7 +29,7 @@ namespace WpfAppBookStore
             btnSave.CommandBindings.Add(command1);
         }
         public Book book=new Book();
-        public DB_BookStore.DB_BookStore dB = new DB_BookStore.DB_BookStore();
+        
         private void SaveBook_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             if(txtAuthor.Text.Length != 0 ||txtName.Text.Length != 0|| txtGenre.Text.Length != 0
@@ -42,12 +42,12 @@ namespace WpfAppBookStore
             {
                 book.Title = txtName.Text;
                 book.Author = txtAuthor.Text;
-                book.Genre = txtGenre.Text;
+                //Genre = txtGenre.Text;
                 book.Price = Convert.ToDouble(txtPrice.Text);
                 book.dateTime = Convert.ToDateTime(txtDate);
             }
-            dB.books.Add(book);
-            dB.SaveChanges();
+            MainWindow.dB.books.Add(book);
+            MainWindow.dB.SaveChanges();
         }
     }
 }

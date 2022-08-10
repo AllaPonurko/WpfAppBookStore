@@ -20,6 +20,7 @@ namespace WpfAppBookStore
     /// </summary>
     public partial class MainWindow : Window
     {
+        static public DB_BookStore.DB_BookStore dB = new DB_BookStore.DB_BookStore();
         public MainWindow()
         {
             InitializeComponent();
