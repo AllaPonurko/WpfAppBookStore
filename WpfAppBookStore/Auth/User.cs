@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using WpfAppBookStore.Models;
 
 namespace WpfAppBookStore.Auth
 {
@@ -11,7 +12,7 @@ namespace WpfAppBookStore.Auth
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-
+        public bool IsAdmin;
         [Required]
         public string Login { get; set; }
         [Required]
@@ -20,10 +21,13 @@ namespace WpfAppBookStore.Auth
         {
             return Login;
         }
+        public ICollection<Book> GetBooks { get; set; }
         public User()
         {
             Login = Login;
             Password = Password;
+            GetBooks = new List<Book>();
+            IsAdmin = false;
         }
     }
 }

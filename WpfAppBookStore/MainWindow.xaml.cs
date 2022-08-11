@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAppBookStore.Commands;
+using WpfAppBookStore.View;
 
 namespace WpfAppBookStore
 {
@@ -24,6 +26,16 @@ namespace WpfAppBookStore
         public MainWindow()
         {
             InitializeComponent();
+            CommandBinding command = new CommandBinding();
+            command.Command = WindowCommands.OpenUserView;
+            command.Executed += OpenUserView_Executed;
+            btnRegistr.CommandBindings.Add(command);
+        }
+
+        private void OpenUserView_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            UserView user = new UserView();
+            user.Show();
         }
     }
 }

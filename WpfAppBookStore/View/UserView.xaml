@@ -4,19 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppBookStore.View"
+        xmlns:com="clr-namespace:WpfAppBookStore.Commands"
         mc:Ignorable="d"
         Title="UserView" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="com:WindowCommands.SaveUser" Executed="SaveUser_Executed"/>
+        <!--<CommandBinding Command="com:WindowCommands.Cancle" Executed="Cancle_Executed"/>-->
+    </Window.CommandBindings>
     <Grid>
         <StackPanel>
-            <Label Content="Форма регистрации пользователя" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
-            <Label Content="Пользователь" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFF0F065" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Content="Форма регистрации пользователя" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#FFF0F065"/>
+            <Label Content="Пользователь" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="16" Foreground="#FFDDDD2F"/>
             <TextBox x:Name="txtName"  TextWrapping="Wrap" Height="40"  Width="120" FontWeight="Bold" FontSize="16"/>
-            <Label Content="Пароль" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Пароль" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="#FFCCDA3D"/>
             <TextBox x:Name="txtPass"  TextWrapping="Wrap" Height="40" Width="120" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"/>
-            <Label Content="Повторить пароль" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <Label Content="Повторить пароль" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#FFECDC40"/>
             <TextBox x:Name="txtPassControl"  TextWrapping="Wrap" Height="40" Width="120" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold"/>
             <StackPanel Height="45" Orientation="Horizontal">
-                <Button x:Name="btnSaveUser"  Content="Сохранить" Width="300" FontWeight="Bold" FontSize="18"/>
+                <Button x:Name="btnSaveUser" Command="com:WindowCommands.SaveUser"  Content="Сохранить" Width="300" FontWeight="Bold" FontSize="18"/>
                 <Label Content="" Width="195"/>
                 <Button x:Name="btnCancle"  Content="Отменить" Width="305" FontSize="18" FontWeight="Bold"/>
             </StackPanel>

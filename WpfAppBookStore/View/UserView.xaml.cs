@@ -61,6 +61,7 @@ namespace WpfAppBookStore.View
                 user.Password = txtPass.Text;
                 MainWindow.dB.users.Add(user);
                 MainWindow.dB.SaveChanges();
+                    this.Close();
             }
 
             }
@@ -68,7 +69,7 @@ namespace WpfAppBookStore.View
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
             
         }
     }

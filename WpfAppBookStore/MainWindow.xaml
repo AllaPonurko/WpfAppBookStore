@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppBookStore"
+        xmlns:com="clr-namespace:WpfAppBookStore.Commands"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="com:WindowCommands.OpenUserView" Executed="OpenUserView_Executed"/>
+    </Window.CommandBindings>
     <Grid>
         <Grid>
             <Grid.Background>
@@ -18,7 +22,7 @@
             <Label Content="Книжный магазин" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Width="410" FontSize="36" FontWeight="Bold" Background="#FF00DCFF" FontFamily="Georgia" FontStyle="Italic"/>
             <Button x:Name="btnExit" Content="Вoйти" HorizontalAlignment="Left" Margin="44,102,0,0" VerticalAlignment="Top" FontSize="18" Width="189"/>
             <Label Content="или" HorizontalAlignment="Left" Margin="112,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.635,0.422" Width="52"/>
-            <Button x:Name="btnRegistr"  Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" FontSize="18"  Width="189" RenderTransformOrigin="0.913,0.44"/>
+            <Button x:Name="btnRegistr" Command="com:WindowCommands.OpenUserView"  Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" FontSize="18"  Width="189" RenderTransformOrigin="0.913,0.44"/>
 
             <StackPanel x:Name="stpUser" Margin="260,100,260,150">
                 <Label Content="Имя пользователя"  Width="149" FontSize="16" Foreground="#FFE7E8EC" HorizontalAlignment="Center" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Visibility="Visible">
