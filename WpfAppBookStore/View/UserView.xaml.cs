@@ -26,8 +26,16 @@ namespace WpfAppBookStore.View
             commandBinding1.Command = WindowCommands.SaveUser;
             commandBinding1.Executed += SaveUser_Executed;
             btnSaveUser.CommandBindings.Add(commandBinding1);
-
+            CommandBinding commandBinding2 = new CommandBinding();
+            commandBinding2.Command= WindowCommands.CancleUser;
+            commandBinding2.Executed+= CancleUser_Executed;
         }
+
+        private void CancleUser_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         public User user = new User();
         private void SaveUser_Executed(object sender, ExecutedRoutedEventArgs e)
         {
@@ -40,25 +48,26 @@ namespace WpfAppBookStore.View
                       if(item.Login==txtName.Text)
                         {
                             MessageBox.Show("Пользователь с таким логином уже существует");
+                            return;
                         }
                     }
                 }
-                if(txtName.Text.Length == 0 || txtPass.Text.Length == 0)
+                if(txtName.Text.Length == 0 || pswPass.Password.Length == 0)
             {
                 MessageBox.Show("Не все поля заполнены");
             }
-            if ( txtPass.Text.Length <4)
+            if (pswPass.Password.Length < 4)
             {
                 MessageBox.Show("Длина пароля должна быть не менее 4-х символов");
             }
-            if (txtPassControl.Text != txtPass.Text)
+            if (pswPassControl.Password != pswPass.Password)
             {
                 MessageBox.Show("Введённые пароли не совпадают");
             }
-            if (txtName.Text.Length!=0&&txtPass.Text.Length>=4&&txtPassControl.Text==txtPass.Text)
+            if (txtName.Text.Length!=0&& pswPass.Password.Length >= 4&& pswPassControl.Password == pswPass.Password)
             {
                 user.Login = txtName.Text;
-                user.Password = txtPass.Text;
+                user.Password = pswPass.Password;
                 MainWindow.dB.users.Add(user);
                 MainWindow.dB.SaveChanges();
                     this.Close();
