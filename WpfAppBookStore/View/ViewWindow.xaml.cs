@@ -21,5 +21,14 @@ namespace WpfAppBookStore.View
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (MainWindow.dB.genres != null)
+                foreach (var item in MainWindow.dB.genres)
+                {
+                    lstGenre.Items.Add(item.ToString());
+                }
+        }
     }
 }
