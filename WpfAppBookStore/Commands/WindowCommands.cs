@@ -9,6 +9,7 @@ namespace WpfAppBookStore.Commands
             SaveBook = new RoutedCommand("SaveBook", typeof(BookView));
             Cancle = new RoutedCommand("Cancle", typeof(BookView));
             LoadListGenre = new RoutedCommand("LoadListGenre", typeof(ViewWindow));
+            AddGenre = new RoutedCommand("AddGenre", typeof(ViewWindow));
             LoadListBook = new RoutedCommand("LoadListBook", typeof(ViewWindow));
             SaveGenre = new RoutedCommand("SaveGenre", typeof(GenreView));
             CancleGenre = new RoutedCommand("CancleGenre", typeof(GenreView));
@@ -29,5 +30,6 @@ namespace WpfAppBookStore.Commands
         public static RoutedCommand CancleGenre { get; set; }
         public static RoutedCommand LoadListGenre { get; set; }
         public static RoutedCommand LoadListBook { get; set; }
+        public static RoutedCommand AddGenre { get; set; }
     }
 }

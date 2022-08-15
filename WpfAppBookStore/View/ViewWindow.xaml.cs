@@ -28,10 +28,19 @@ namespace WpfAppBookStore.View
             CommandBinding command2 = new CommandBinding();
             command2.Command = WindowCommands.LoadListBook;
             command2.Executed += LoadListBook_Executed;
+            CommandBinding command3 = new CommandBinding();
+            command3.Command = WindowCommands.AddGenre;
+            command3.Executed += AddGenre_Executed;
             //Binding binding = new Binding();
             //binding.Source = MainWindow.dB.genres;
             //binding.Mode = BindingMode.TwoWay;
             //lstGenre.SetBinding(ListView.ItemsSourceProperty, binding);
+        }
+
+        private void AddGenre_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            GenreView genre = new GenreView();
+            genre.Show();
         }
 
         private void LoadListBook_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -41,7 +50,7 @@ namespace WpfAppBookStore.View
 
         private void LoadListGenre_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if (MainWindow.dB.genres != null)
+            if (MainWindow.dB.genres !=null)
                 foreach (var item in MainWindow.dB.genres)
                 {
                     lstGenre.Items.Add(item.ToString());

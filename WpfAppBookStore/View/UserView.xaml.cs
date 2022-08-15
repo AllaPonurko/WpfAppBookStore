@@ -68,12 +68,16 @@ namespace WpfAppBookStore.View
             {
                 user.Login = txtName.Text;
                 user.Password = pswPass.Password;
-                MainWindow.dB.users.Add(user);
-                MainWindow.dB.SaveChanges();
-                    this.Close();
+               
+               if (chbIsAdmin.IsChecked==true)
+                {
+                        user.IsAdmin = true;
+                } 
+                    MainWindow.dB.users.Add(user);
+                    MainWindow.dB.SaveChanges();
+                    this.Close();    
             }
-                
-            }
+        }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
