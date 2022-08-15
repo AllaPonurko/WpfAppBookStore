@@ -57,7 +57,7 @@ namespace WpfAppBookStore.View
                 MainWindow.dB.genres.Add(genre);
                 MainWindow.dB.SaveChanges();
             }
-             
+            this.Close();
         }
     }
 }

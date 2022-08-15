@@ -23,7 +23,7 @@ namespace WpfAppBookStore
         public BookView()
         {
             InitializeComponent();
-            book= new Book();
+            
             CommandBinding command1 = new CommandBinding();
             command1.Command = WindowCommands.SaveBook;
             command1.Executed += SaveBook_Executed;
@@ -39,7 +39,7 @@ namespace WpfAppBookStore
             this.Close();
         }
 
-        public Book book;
+        public Book book = new Book();
 
         private void SaveBook_Executed(object sender, ExecutedRoutedEventArgs e)
         {
@@ -47,7 +47,7 @@ namespace WpfAppBookStore
             {
                 {
                     if (txtAuthor.Text.Length != 0 || txtName.Text.Length != 0 || txtGenre.Text.Length != 0
-                || txtPrice.Text.Length != 0 || txtDate.Text.Length != 0)
+                || txtPrice.Text.Length != 0 /*|| txtDate.Text.Length != 0*/)
                     {
                         MessageBox.Show("Не все поля заполнены");
                     }
@@ -57,8 +57,15 @@ namespace WpfAppBookStore
                         book.Title = txtName.Text;
                         book.Author = txtAuthor.Text;
                         book.Price = Convert.ToDouble(txtPrice.Text);
-                        book.dateTime = Convert.ToDateTime(txtDate);
-
+                        
+                        //var g = (from genre in MainWindow.dB.genres where genre.Name == txtGenre.Text select genre).First();
+                        foreach(var item in MainWindow.dB.genres)
+                        {
+                            if(item.Name== txtGenre.Text)
+                            {
+                                item.GetBooks.Add(book);
+                            }
+                        }
                     }
                     
                 }

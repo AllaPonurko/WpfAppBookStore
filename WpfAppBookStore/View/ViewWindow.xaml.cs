@@ -42,31 +42,29 @@ namespace WpfAppBookStore.View
 
         private void AddBook_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if(lstGenre.Items==null)
+            try
+            { 
+                if(lstGenre.Items==null)
             {
                 MessageBox.Show("Список жанров пуст! Добавьте жанр");
             }
-            if(lstGenre.Items != null&& lstGenre.SelectedItems==null)
+            if(lstGenre.Items != null&& lstGenre.SelectedItem==null)
             {
                 MessageBox.Show(" Не выбран жанр!");
             }
-            if(lstGenre.Items != null && lstGenre.SelectedItems != null)
+            if(lstGenre.Items != null && lstGenre.SelectedItem!= null)
             {
                 BookView book = new BookView();
                 book.Show();
-                //book.txtGenre.Text = lstGenre.SelectedItem.ToString();
-                //var g = (from genre in MainWindow.dB.genres
-                //         where lstGenre.SelectedItem.ToString() == genre.Tostring()
-                //         select genre).First();
-                foreach(var item in MainWindow.dB.genres)
-                {
-                    if(item.Name== lstGenre.SelectedItem.ToString())
-                    {
-                        item.GetBooks.Add(book.book);
-                    }
-                }
-                MainWindow.dB.SaveChanges();
+                book.txtGenre.Text = lstGenre.SelectedItem.ToString();
+                    book.txtDate.Text = Convert.ToString(DateTime.Now);
             }
+            }
+            catch(Exception ex)
+            { 
+                MessageBox.Show(ex.Message); 
+            }
+            
         }
 
         private void AddGenre_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -77,11 +75,28 @@ namespace WpfAppBookStore.View
 
         private void LoadListBook_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            lstBook.Items.Clear();
+           if(lstGenre.Items==null)
+            {
+                MessageBox.Show("Нет данных для показа");
+            }
+           if(lstGenre.Items != null&& lstGenre.SelectedItem==null)
+            {
+                MessageBox.Show("Не выбран жанр");
+            }
+           if(lstGenre.Items != null && lstGenre.SelectedItem != null)
+            {foreach(var item in MainWindow.dB.genres)
+                if(item.Name== lstGenre.SelectedItem.ToString())
+                        foreach(var item1 in item.GetBooks)
+                    {
+                            lstBook.Items.Add(item1);
+                    }
+            }
         }
 
         private void LoadListGenre_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            lstGenre.Items.Clear();
             if (MainWindow.dB.genres !=null)
                 foreach (var item in MainWindow.dB.genres)
                 {
