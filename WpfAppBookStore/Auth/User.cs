@@ -12,7 +12,8 @@ namespace WpfAppBookStore.Auth
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-        public bool IsAdmin;
+        
+        public bool IsAdmin { get; set; }
         [Required]
         public string Login { get; set; }
         [Required]

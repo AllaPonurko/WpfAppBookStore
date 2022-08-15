@@ -72,7 +72,7 @@ namespace WpfAppBookStore.View
                 MainWindow.dB.SaveChanges();
                     this.Close();
             }
-
+                
             }
             catch(Exception ex)
             {
@@ -80,6 +80,18 @@ namespace WpfAppBookStore.View
             }
 
             
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(MainWindow.dB.users!=null)
+            {
+                foreach(var item in MainWindow.dB.users)
+                {
+                    if (item.IsAdmin == true)
+                        chbIsAdmin.Visibility = Visibility.Hidden;
+                }
+            }
         }
     }
 }

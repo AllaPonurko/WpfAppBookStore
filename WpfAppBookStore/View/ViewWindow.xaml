@@ -5,12 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppBookStore.View"
         xmlns:com="clr-namespace:WpfAppBookStore.Commands"
+        xmlns:db="clr-namespace:WpfAppBookStore.DbBookStore"
         mc:Ignorable="d"
-        Title="ViewWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="ViewWindow" Height="450" Width="800">
     <Window.CommandBindings>
-        <!--<CommandBinding Command="com:WindowCommands.SaveBook" Executed="SaveBook_Executed"/>
-        <CommandBinding Command="com:WindowCommands.Cancle" Executed="Cancle_Executed"/>-->
+        <CommandBinding Command="com:WindowCommands.LoadListGenre" Executed="LoadListGenre_Executed"/>
+        <CommandBinding Command="com:WindowCommands.LoadListBook" Executed="LoadListBook_Executed"/>
     </Window.CommandBindings>
+    <Window.Resources>
+        <!--<Style>
+            
+        </Style>--> 
+    </Window.Resources>
     <Grid>
         <Grid x:Name="layoutGrid" Margin="-10,-10,10,10">
             <Grid.ColumnDefinitions>
@@ -23,8 +29,8 @@
                 <RowDefinition Height="50" />
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Content="Жанры" Grid.Row="0" Grid.Column="0" Width="130"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Bottom" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
-            <Label Content="Книги" Grid.Row="0" Grid.Column="1" Width="130"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Bottom" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
+            <Button x:Name="btnLstGenre" Command="com:WindowCommands.LoadListGenre"  Content="Жанры" Width="180"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
+            <Button x:Name="btnlstBook" Command="com:WindowCommands.LoadListBook"  Content="Книги" Grid.Column="1" Width="240"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
             <ListView x:Name="lstGenre"  Grid.Row="1" Grid.Column="0"   HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="18" FontWeight="Bold" FontStyle="Normal"/>
             <ListView x:Name="lstBook"  Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="18" FontWeight="Bold" FontStyle="Normal"/>
             <ScrollBar HorizontalAlignment="Right" Margin="190,0,0,351" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom"/>

@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfAppBookStore.Commands;
 
 namespace WpfAppBookStore.View
 {
@@ -20,9 +21,25 @@ namespace WpfAppBookStore.View
         public ViewWindow()
         {
             InitializeComponent();
+            CommandBinding command1 = new CommandBinding();
+            command1.Command = WindowCommands.LoadListGenre;
+            command1.Executed += LoadListGenre_Executed;
+            btnLstGenre.CommandBindings.Add(command1);
+            CommandBinding command2 = new CommandBinding();
+            command2.Command = WindowCommands.LoadListBook;
+            command2.Executed += LoadListBook_Executed;
+            //Binding binding = new Binding();
+            //binding.Source = MainWindow.dB.genres;
+            //binding.Mode = BindingMode.TwoWay;
+            //lstGenre.SetBinding(ListView.ItemsSourceProperty, binding);
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void LoadListBook_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadListGenre_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             if (MainWindow.dB.genres != null)
                 foreach (var item in MainWindow.dB.genres)
@@ -30,5 +47,7 @@ namespace WpfAppBookStore.View
                     lstGenre.Items.Add(item.ToString());
                 }
         }
+
+        
     }
 }

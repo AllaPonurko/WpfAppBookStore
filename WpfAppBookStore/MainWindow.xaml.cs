@@ -22,7 +22,7 @@ namespace WpfAppBookStore
     /// </summary>
     public partial class MainWindow : Window
     {
-        static public DB_BookStore.DB_BookStore dB = new DB_BookStore.DB_BookStore();
+        static public DbBookStore.DB_BookStore dB = new DbBookStore.DB_BookStore();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace WpfAppBookStore
             command1.Executed+= UserEnter_Executed;
             btnEnter.CommandBindings.Add(command1);
         }
-
+        
         private void UserEnter_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             if(dB.users!=null)
@@ -74,6 +74,18 @@ namespace WpfAppBookStore
         {
             txtLogin.IsEnabled = true;
             pswPass.IsEnabled = true;
+        }
+
+        private void Load_MainWindow(object sender, RoutedEventArgs e)
+        {
+            if (dB.users != null)
+            {
+                foreach (var item in dB.users)
+                {
+                    if (item.IsAdmin == true)
+                        btnRegAdmin.Visibility = Visibility.Hidden;
+                }
+            }
         }
     }
 }

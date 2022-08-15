@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfAppBookStore"
         xmlns:com="clr-namespace:WpfAppBookStore.Commands"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Load_MainWindow">
     <Window.CommandBindings>
         <CommandBinding Command="com:WindowCommands.OpenUserView" Executed="OpenUserView_Executed"/>
         <CommandBinding Command="com:WindowCommands.UserEnter" Executed="UserEnter_Executed"/>
@@ -21,7 +21,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Label Content="Книжный магазин" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" FontSize="36" FontWeight="Bold" Background="#FF00DCFF" FontFamily="Georgia" FontStyle="Italic" Height="61" RenderTransformOrigin="0.5,0.5"/>
-            <Button x:Name="btnEnter" Content="Вoйти" HorizontalAlignment="Left" Margin="44,102,0,0" VerticalAlignment="Top" FontSize="18" Width="189" Click="btnEnter_Click"/>
+            <Button x:Name="btnEnter" Content="Вoйти" Command="com:WindowCommands.UserEnter" HorizontalAlignment="Left" Margin="44,102,0,0" VerticalAlignment="Top" FontSize="18" Width="189" Click="btnEnter_Click" Visibility="Visible"/>
             <Label Content="или" HorizontalAlignment="Left" Margin="112,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.635,0.422" Width="52"/>
             <Button x:Name="btnRegistr" Command="com:WindowCommands.OpenUserView"  Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" FontSize="18"  Width="189" RenderTransformOrigin="0.913,0.44"/>
 
@@ -33,8 +33,9 @@
                 <Label Content="Пароль" Foreground="#FFE7E8EC" FontSize="18" HorizontalAlignment="Center"/>
                 <PasswordBox x:Name="pswPass" Height="34" PasswordChar="*" FontSize="16"  Width="280" IsEnabled="False"/>
                 <Label Height="14"></Label>
-                <Button x:Name="btnConfirm" Command="com:WindowCommands.UserEnter" Content="Подтвердить" Height="35"/>
+                <Button x:Name="btnConfirm" Command="com:WindowCommands.UserEnter" Content="Подтвердить" Height="30"/>
             </StackPanel>
+            <Button x:Name="btnRegAdmin" Content="as Admin" Command="com:WindowCommands.OpenUserView" HorizontalAlignment="Left" Margin="44,328,0,0" VerticalAlignment="Top"/>
 
         </Grid>
     </Grid>

@@ -5,7 +5,7 @@ using System.Text;
 using WpfAppBookStore.Auth;
 using WpfAppBookStore.Models;
 
-namespace WpfAppBookStore.DB_BookStore
+namespace WpfAppBookStore.DbBookStore
 {
     public class DB_BookStore:DbContext
     {
@@ -19,7 +19,7 @@ namespace WpfAppBookStore.DB_BookStore
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;
-                           Database=Db_BookStore.db;Trusted_Connection=True;");
+                           Database=BookStore.db;Trusted_Connection=True;");
         }
     }
 }
