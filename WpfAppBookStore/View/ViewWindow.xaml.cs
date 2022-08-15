@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfAppBookStore.Commands;
+using WpfAppBookStore.Models;
 
 namespace WpfAppBookStore.View
 {
@@ -57,7 +58,7 @@ namespace WpfAppBookStore.View
                 BookView book = new BookView();
                 book.Show();
                 book.txtGenre.Text = lstGenre.SelectedItem.ToString();
-                    book.txtDate.Text = Convert.ToString(DateTime.Now);
+                book.txtDate.Text = DateTime.Now.ToShortDateString();
             }
             }
             catch(Exception ex)
@@ -85,12 +86,20 @@ namespace WpfAppBookStore.View
                 MessageBox.Show("Не выбран жанр");
             }
            if(lstGenre.Items != null && lstGenre.SelectedItem != null)
-            {foreach(var item in MainWindow.dB.genres)
-                if(item.Name== lstGenre.SelectedItem.ToString())
-                        foreach(var item1 in item.GetBooks)
+            {
+                foreach(var item in MainWindow.dB.genres)
+                {
+                    if(item.Name== lstGenre.SelectedItem.ToString())
                     {
-                            lstBook.Items.Add(item1);
+                        //var b = (from book in MainWindow.dB.books
+                        //         where item.Id == book.GenreId
+                        //         select book).ToList();
+                        foreach(var item1 in item.GetBooks)
+                         lstBook.Items.Add(item1.ToString());
                     }
+
+                }
+                
             }
         }
 

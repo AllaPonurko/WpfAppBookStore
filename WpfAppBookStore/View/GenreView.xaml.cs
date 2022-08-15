@@ -43,19 +43,22 @@ namespace WpfAppBookStore.View
             if (MainWindow.dB.genres != null)
             {
                 if (txtName.Text.Length != 0)
-
+                {
                     foreach (var item in MainWindow.dB.genres)
                     {
                         if (item.Name == txtName.Text)
+                        {
                             MessageBox.Show("Такой жанр уже существует");
-                        return;
+                            return;
+                        }
+                        
                     }
-            }
-            
-            {
-                genre.Name = txtName.Text;
-                MainWindow.dB.genres.Add(genre);
-                MainWindow.dB.SaveChanges();
+                            genre.Name = txtName.Text;
+                            MainWindow.dB.genres.Add(genre);
+                            MainWindow.dB.SaveChanges();
+                       
+                }
+
             }
             this.Close();
         }

@@ -44,16 +44,17 @@ namespace WpfAppBookStore
                 {
                     foreach (var item in dB.users)
                     {
-                        if (item.Login == txtLogin.Text && item.Password == pswPass.Password)
-                        {
-                            ViewWindow viewWindow = new ViewWindow();
-                            viewWindow.Show();
-                        }
                         if (item.Login != txtLogin.Text || item.Password != pswPass.Password)
                         {
                             MessageBox.Show("Неверный логин или пароль");
                             return;
                         }
+                        if (item.Login == txtLogin.Text && item.Password == pswPass.Password)
+                        {
+                            ViewWindow viewWindow = new ViewWindow();
+                            viewWindow.Show();
+                        }
+                        
                     }
                 }
                 if(txtLogin.Text.Length == 0 || pswPass.Password.Length == 0)

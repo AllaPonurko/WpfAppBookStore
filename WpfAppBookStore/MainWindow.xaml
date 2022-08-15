@@ -25,7 +25,7 @@
             <Label Content="или" HorizontalAlignment="Left" Margin="112,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.635,0.422" Width="52"/>
             <Button x:Name="btnRegistr" Command="com:WindowCommands.OpenUserView"  Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" FontSize="18"  Width="189" RenderTransformOrigin="0.913,0.44"/>
 
-            <StackPanel x:Name="stpUser" Margin="260,100,260,150">
+            <StackPanel x:Name="stpUser" Margin="260,100,260,120">
                 <Label Content="Имя пользователя"  Width="149" FontSize="16" Foreground="#FFE7E8EC" HorizontalAlignment="Center" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Visibility="Visible">
 
                 </Label>
