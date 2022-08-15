@@ -28,13 +28,37 @@ namespace WpfAppBookStore.View
             CommandBinding command2 = new CommandBinding();
             command2.Command = WindowCommands.LoadListBook;
             command2.Executed += LoadListBook_Executed;
+            btnlstBook.CommandBindings.Add(command2);
             CommandBinding command3 = new CommandBinding();
             command3.Command = WindowCommands.AddGenre;
             command3.Executed += AddGenre_Executed;
+            btnAddGenre.CommandBindings.Add(command3);
+            CommandBinding command4 = new CommandBinding();
+            command4.Command = WindowCommands.AddBook;
+            command4.Executed += AddBook_Executed;
+            btnAddBook.CommandBindings.Add(command4);
             //Binding binding = new Binding();
             //binding.Source = MainWindow.dB.genres;
             //binding.Mode = BindingMode.TwoWay;
             //lstGenre.SetBinding(ListView.ItemsSourceProperty, binding);
+        }
+
+        private void AddBook_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if(lstGenre.Items==null)
+            {
+                MessageBox.Show("Список жанров пуст! Добавьте жанр");
+            }
+            if(lstGenre.Items != null&& lstGenre.SelectedItems==null)
+            {
+                MessageBox.Show(" Не выбран жанр!");
+            }
+            if(lstGenre.Items != null && lstGenre.SelectedItems != null)
+            {
+                BookView book = new BookView();
+                book.Show();
+                book.txtGenre.Text = lstGenre.SelectedItems.ToString();
+            }
         }
 
         private void AddGenre_Executed(object sender, ExecutedRoutedEventArgs e)

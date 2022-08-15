@@ -55,10 +55,11 @@ namespace WpfAppBookStore
                     {
                         book.Title = txtName.Text;
                         book.Author = txtAuthor.Text;
-                        //Genre = txtGenre.Text;
                         book.Price = Convert.ToDouble(txtPrice.Text);
                         book.dateTime = Convert.ToDateTime(txtDate);
+
                     }
+                    
                 }
                     MainWindow.dB.books.Add(book);
                     MainWindow.dB.SaveChanges();
