@@ -12,7 +12,7 @@
         <CommandBinding Command="com:WindowCommands.LoadListGenre" Executed="LoadListGenre_Executed"/>
         <CommandBinding Command="com:WindowCommands.LoadListBook" Executed="LoadListBook_Executed"/>
         <CommandBinding Command="com:WindowCommands.AddGenre" Executed="AddGenre_Executed"/>
-        <CommandBinding Command="com:WindowCommands.AddBook" Executed="AddBook_Executed/"/>
+        <CommandBinding Command="com:WindowCommands.AddBook" Executed="AddBook_Executed"/>
     </Window.CommandBindings>
     <Window.Resources>
         <!--<Style>
@@ -33,7 +33,7 @@
             </Grid.RowDefinitions>
             <Button x:Name="btnLstGenre" Command="com:WindowCommands.LoadListGenre"  Content="Жанры" Width="180"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
             <Button x:Name="btnlstBook" Command="com:WindowCommands.LoadListBook"  Content="Книги" Grid.Column="1" Width="240"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
-            <ListView x:Name="lstGenre"  Grid.Row="1" Grid.Column="0"   HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="18" FontWeight="Bold" FontStyle="Normal"/>
+            <ListView x:Name="lstGenre"   Grid.Row="1" Grid.Column="0"   HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="18" FontWeight="Bold" FontStyle="Normal"/>
             <ListView x:Name="lstBook"  Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="18" FontWeight="Bold" FontStyle="Normal"/>
             <ScrollBar HorizontalAlignment="Right" Margin="190,0,0,351" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom"/>
             <ScrollBar HorizontalAlignment="Right" Margin="190,0,0,351" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"/>

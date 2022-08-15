@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfAppBookStore.Commands;
 using WpfAppBookStore.Models;
-
+using WpfAppBookStore.View;
 
 namespace WpfAppBookStore
 {
@@ -23,6 +23,7 @@ namespace WpfAppBookStore
         public BookView()
         {
             InitializeComponent();
+            book= new Book();
             CommandBinding command1 = new CommandBinding();
             command1.Command = WindowCommands.SaveBook;
             command1.Executed += SaveBook_Executed;
@@ -38,7 +39,7 @@ namespace WpfAppBookStore
             this.Close();
         }
 
-        public Book book = new Book();
+        public Book book;
 
         private void SaveBook_Executed(object sender, ExecutedRoutedEventArgs e)
         {

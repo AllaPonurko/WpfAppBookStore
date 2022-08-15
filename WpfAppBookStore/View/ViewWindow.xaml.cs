@@ -37,10 +37,7 @@ namespace WpfAppBookStore.View
             command4.Command = WindowCommands.AddBook;
             command4.Executed += AddBook_Executed;
             btnAddBook.CommandBindings.Add(command4);
-            //Binding binding = new Binding();
-            //binding.Source = MainWindow.dB.genres;
-            //binding.Mode = BindingMode.TwoWay;
-            //lstGenre.SetBinding(ListView.ItemsSourceProperty, binding);
+
         }
 
         private void AddBook_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -57,7 +54,18 @@ namespace WpfAppBookStore.View
             {
                 BookView book = new BookView();
                 book.Show();
-                book.txtGenre.Text = lstGenre.SelectedItems.ToString();
+                //book.txtGenre.Text = lstGenre.SelectedItem.ToString();
+                //var g = (from genre in MainWindow.dB.genres
+                //         where lstGenre.SelectedItem.ToString() == genre.Tostring()
+                //         select genre).First();
+                foreach(var item in MainWindow.dB.genres)
+                {
+                    if(item.Name== lstGenre.SelectedItem.ToString())
+                    {
+                        item.GetBooks.Add(book.book);
+                    }
+                }
+                MainWindow.dB.SaveChanges();
             }
         }
 

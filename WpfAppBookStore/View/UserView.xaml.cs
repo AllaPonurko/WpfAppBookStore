@@ -29,6 +29,7 @@ namespace WpfAppBookStore.View
             CommandBinding commandBinding2 = new CommandBinding();
             commandBinding2.Command= WindowCommands.CancleUser;
             commandBinding2.Executed+= CancleUser_Executed;
+            btnCancle.CommandBindings.Add(commandBinding2);
         }
 
         private void CancleUser_Executed(object sender, ExecutedRoutedEventArgs e)
