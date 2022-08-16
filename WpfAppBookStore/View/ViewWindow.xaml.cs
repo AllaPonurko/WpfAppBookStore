@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,8 +39,80 @@ namespace WpfAppBookStore.View
             command4.Command = WindowCommands.AddBook;
             command4.Executed += AddBook_Executed;
             btnAddBook.CommandBindings.Add(command4);
-
+            CommandBinding command5 = new CommandBinding();
+            command5.Command = WindowCommands.DelGenre;
+            command5.Executed += DelGenre_Executed;
+            btnDelGenre.CommandBindings.Add(command5);
+            CommandBinding command6 = new CommandBinding();
+            command6.Command = WindowCommands.DelBook;
+            command6.Executed += DelBook_Executed;
+            btnDelBook.CommandBindings.Add(command6);
         }
+
+        private void DelBook_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                if(lstBook.Items==null)
+                {
+                    MessageBox.Show("Список книг пуст!Нет данных для удаления");
+                }
+                if(lstBook.Items != null&&lstBook.SelectedItem==null)
+                {
+                    MessageBox.Show(" Не выбрана книга!");
+                }
+                if (lstBook.Items != null && lstBook.SelectedItem != null)
+                {
+                    var b = (from book in MainWindow.dB.books
+                             where book.ToString() == lstBook.SelectedItem.ToString()
+                             select book).First();
+                    MainWindow.dB.books.Remove(b);
+                    MainWindow.dB.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DelGenre_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                if (lstGenre.Items == null)
+                {
+                    MessageBox.Show("Список жанров пуст!Нет данных для удаления");
+                }
+                if (lstGenre.Items != null && lstGenre.SelectedItem == null)
+                {
+                    MessageBox.Show(" Не выбран жанр!");
+                }
+                if (lstGenre.Items != null && lstGenre.SelectedItem != null)
+                {
+                    var g = (from genre in MainWindow.dB.genres
+                             where genre.Name == lstGenre.SelectedItem.ToString()
+                             select genre).First();
+                    if(g.GetBooks.Count==0)
+                    {
+                        MainWindow.dB.genres.Remove(g);
+                        MainWindow.dB.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Выбранный жанр содержит список книг. Сначала удалите все книги");
+                    }
+                    
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
 
         private void AddBook_Executed(object sender, ExecutedRoutedEventArgs e)
         {
