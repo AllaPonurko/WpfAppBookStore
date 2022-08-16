@@ -32,36 +32,57 @@ namespace WpfAppBookStore
             btnRegistr.CommandBindings.Add(command);
             CommandBinding command1 = new CommandBinding();
             command1.Command = WindowCommands.UserEnter;
-            command1.Executed+= UserEnter_Executed;
+            command1.Executed += UserEnter_Executed;
             btnEnter.CommandBindings.Add(command1);
         }
-        
+
         private void UserEnter_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if(dB.users!=null)
+            if (dB.users != null)
             {
-                if (txtLogin.Text.Length != 0 && pswPass.Password.Length != 0)
+                if (txtLogin.Text.Length!=0 && pswPass.Password.Length!= 0)
                 {
                     foreach (var item in dB.users)
                     {
-                        if (item.Login != txtLogin.Text || item.Password != pswPass.Password)
-                        {
-                            MessageBox.Show("Неверный логин или пароль");
-                            return;
-                        }
                         if (item.Login == txtLogin.Text && item.Password == pswPass.Password)
                         {
-                            ViewWindow viewWindow = new ViewWindow();
-                            viewWindow.Show();
+                            if (item.IsAdmin == true)
+                            {
+                                ViewWindow viewWindow = new ViewWindow();
+                                viewWindow.Show();
+                            }
+                            else
+                            {
+                                ViewWindow viewWindow = new ViewWindow();
+                                viewWindow.Show();
+                                viewWindow.btnAddBook.Visibility = Visibility.Hidden;
+                                viewWindow.btnAddGenre.Visibility = Visibility.Hidden;
+                            }
+
                         }
-                        
+                        if (item.Login == txtLogin.Text && item.Password != pswPass.Password)
+                        {
+                            MessageBox.Show("Неверный пароль");
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пользователь под таким логином не существует");
+                            return;
+                        }
                     }
+
                 }
-                if(txtLogin.Text.Length == 0 || pswPass.Password.Length == 0)
+
+                else
                 {
                     MessageBox.Show("Не заполнены поля логин или пароль");
                     return;
                 }
+            }
+            else
+            {
+                MessageBox.Show("Зарегистрируйтесь!");
             }
         }
 
