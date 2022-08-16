@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WpfAppBookStore.DbBookStore;
 
 namespace WpfAppBookStore.Migrations
 {
     [DbContext(typeof(DB_BookStore))]
-    partial class DB_BookStoreModelSnapshot : ModelSnapshot
+    [Migration("20220816231425_addId")]
+    partial class addId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -16,6 +16,8 @@
         <CommandBinding Command="com:WindowCommands.AddBook" Executed="AddBook_Executed"/>
         <CommandBinding Command="com:WindowCommands.DelGenre" Executed="DelGenre_Executed"/>
         <CommandBinding Command="com:WindowCommands.DelBook" Executed="DelBook_Executed"/>
+        <CommandBinding Command="com:WindowCommands.EditGenre" Executed="EditGenre_Executed"/>
+        <CommandBinding Command="com:WindowCommands.EditBook" Executed="EditBook_Executed"/>
     </Window.CommandBindings>
     <Window.Resources>
         <Style x:Key="StyleGrid" >
@@ -43,15 +45,18 @@
             </Grid.RowDefinitions>
             <Button x:Name="btnLstGenre" Command="com:WindowCommands.LoadListGenre"  Content="Жанры" Width="180"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
             <Button x:Name="btnlstBook" Command="com:WindowCommands.LoadListBook"  Content="Книги" Grid.Column="1" Width="240"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
-            <ListView x:Name="lstGenre" Width="180" Style="{StaticResource StyleGrid}"  Grid.Row="1" Grid.Column="0"   HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
-            <ListView x:Name="lstBook" Width="240" Style="{StaticResource StyleGrid}"  Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
+            <ListBox x:Name="lstGenre" Width="180" Style="{StaticResource StyleGrid}"  Grid.Row="1" Grid.Column="0"   HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
+            <ListBox x:Name="lstBook" Width="240" Style="{StaticResource StyleGrid}"  Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
             
             
             <Button x:Name="btnAddGenre" Command="com:WindowCommands.AddGenre"  Content="Добавить жанр" HorizontalAlignment="Center" Margin="0,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180"/>
             <Button x:Name="btnDelGenre" Command="com:WindowCommands.DelGenre"  Content="Удалить жанр" HorizontalAlignment="Center" Margin="0,350,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180"/>
+            <Button x:Name="btnEditGenre" Command="com:WindowCommands.EditGenre"  Content="Редактировать жанр" HorizontalAlignment="Center" Margin="0,372,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180"/>
             <Button x:Name="btnAddBook" Command="com:WindowCommands.AddBook" Grid.Column="1" Content="Добавить книгу" HorizontalAlignment="Left" Margin="0,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230"/>
             <Button x:Name="btnDelBook" Command="com:WindowCommands.DelBook" Grid.Column="1" Content="Удалить книгу" HorizontalAlignment="Left" Margin="0,350,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230"/>
+            <Button x:Name="btnEditBook" Command="com:WindowCommands.EditBook" Grid.Column="1" Content="Редактировать книгу" HorizontalAlignment="Left" Margin="0,372,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230"/>
         </Grid>
+        
 
 
     </Grid>

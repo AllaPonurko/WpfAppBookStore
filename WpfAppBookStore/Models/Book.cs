@@ -28,7 +28,8 @@ namespace WpfAppBookStore.Models
         /// </summary>
         [Required]   
         public double Price { get; set; }
-        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid GenreId { get; set; }
         /// <summary>
         /// поле дата поступления
         /// </summary>

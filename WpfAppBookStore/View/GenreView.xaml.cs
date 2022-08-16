@@ -22,14 +22,14 @@ namespace WpfAppBookStore.View
         public GenreView()
         {
             InitializeComponent();
-            CommandBinding command1 = new CommandBinding();
-            command1.Command = WindowCommands.SaveGenre;
-            command1.Executed += SaveGenre_Executed;
-            btnSave.CommandBindings.Add(command1);
-            CommandBinding command2 = new CommandBinding();
-            command2.Command = WindowCommands.CancleGenre;
-            command2.Executed += CancleGenre_Executed;
-            btnCancle.CommandBindings.Add(command2);
+            //CommandBinding command1 = new CommandBinding();
+            //command1.Command = WindowCommands.SaveGenre;
+            //command1.Executed += SaveGenre_Executed;
+            //btnSave.CommandBindings.Add(command1);
+            //CommandBinding command2 = new CommandBinding();
+            //command2.Command = WindowCommands.CancleGenre;
+            //command2.Executed += CancleGenre_Executed;
+            //btnCancle.CommandBindings.Add(command2);
         }
 
         private void CancleGenre_Executed(object sender, ExecutedRoutedEventArgs e)

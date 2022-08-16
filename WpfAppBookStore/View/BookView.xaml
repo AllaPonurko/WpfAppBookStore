@@ -8,9 +8,11 @@
         xmlns:view="clr-namespace:WpfAppBookStore.View"
         mc:Ignorable="d"
         Title="BookView" Height="450" Width="800">
-    <Window.Resources>
-        <ListView x:Key="lstGenre"/>
-    </Window.Resources>
+    <!--<Window.Resources>
+        <ListView x:Key="lstGenre">
+            
+        </ListView>
+    </Window.Resources>-->
     <Window.CommandBindings>
         <CommandBinding Command="com:WindowCommands.SaveBook" Executed="SaveBook_Executed"/>
         <CommandBinding Command="com:WindowCommands.Cancle" Executed="Cancle_Executed"/>
