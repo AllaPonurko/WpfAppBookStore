@@ -17,11 +17,23 @@
         <CommandBinding Command="com:WindowCommands.DelGenre" Executed="DelGenre_Executed"/>
         <CommandBinding Command="com:WindowCommands.DelBook" Executed="DelBook_Executed"/>
     </Window.CommandBindings>
+    <Window.Resources>
+        <Style x:Key="StyleGrid" >
+            <Setter Property="Control.Background">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Grid x:Name="layoutGrid" Margin="0,0,0,0">
+        <Grid x:Name="layoutGrid" Style="{StaticResource StyleGrid}" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="240"/>
+                <ColumnDefinition  Width="200"/>
+                <ColumnDefinition  Width="240"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -31,8 +43,8 @@
             </Grid.RowDefinitions>
             <Button x:Name="btnLstGenre" Command="com:WindowCommands.LoadListGenre"  Content="Жанры" Width="180"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
             <Button x:Name="btnlstBook" Command="com:WindowCommands.LoadListBook"  Content="Книги" Grid.Column="1" Width="240"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
-            <ListView x:Name="lstGenre"   Grid.Row="1" Grid.Column="0"   HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
-            <ListView x:Name="lstBook"  Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
+            <ListView x:Name="lstGenre" Width="180" Style="{StaticResource StyleGrid}"  Grid.Row="1" Grid.Column="0"   HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
+            <ListView x:Name="lstBook" Width="240" Style="{StaticResource StyleGrid}"  Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
             
             
             <Button x:Name="btnAddGenre" Command="com:WindowCommands.AddGenre"  Content="Добавить жанр" HorizontalAlignment="Center" Margin="0,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180"/>
