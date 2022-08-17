@@ -76,7 +76,10 @@ namespace WpfAppBookStore.View
                     bookEdit.txtName.Text = editbook.Title;
                     bookEdit.txtPrice.Text = Convert.ToString(editbook.Price);
                     bookEdit.txtDate.Text = Convert.ToString(editbook.dateTime);
-
+                    bookEdit.lblId.Visibility = Visibility.Visible;
+                    bookEdit.txtId.Visibility = Visibility.Visible;
+                    bookEdit.txtId.Text = Convert.ToString(editbook.Id);
+                    
                 }
 
             }
