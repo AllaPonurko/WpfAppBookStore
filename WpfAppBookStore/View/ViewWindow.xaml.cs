@@ -91,6 +91,11 @@ namespace WpfAppBookStore.View
         {
 
         }
+        /// <summary>
+        /// удаление книги
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DelBook_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             try
@@ -108,8 +113,14 @@ namespace WpfAppBookStore.View
                     var b = (from book in MainWindow.dB.books
                              where book.Title == lstBook.SelectedItem.ToString()
                              select book).First();
+                    var g = (from genre in MainWindow.dB.genres
+                             where genre.Id == b.GenreId
+                             select genre).First();
+                    g.GetBooks.Remove(b);
+                    lstBook.Items.Remove(lstBook.SelectedItem);
                     MainWindow.dB.books.Remove(b);
                     MainWindow.dB.SaveChanges();
+                    MessageBox.Show("Книга удалена!");
                 }
             }
             catch (Exception ex)
@@ -173,6 +184,7 @@ namespace WpfAppBookStore.View
                     BookView book = new BookView();
                     book.Show();
                     book.txtGenre.Text = lstGenre.SelectedItem.ToString();
+                    book.txtGenre.IsReadOnly = true;
                     book.txtDate.Text = DateTime.Now.ToShortDateString();
                 }
             }

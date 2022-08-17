@@ -44,6 +44,11 @@ namespace WpfAppBookStore
                 {
                     foreach (var item in dB.users)
                     {
+                        //if(item.Login != txtLogin.Text&& item.Password != pswPass.Password|| item.Password == pswPass.Password)
+                        //{
+                        //    MessageBox.Show("Пользователь под таким логином не существует");
+                        //    return;
+                        //}
                         if (item.Login == txtLogin.Text && item.Password == pswPass.Password)
                         {
                             if (item.IsAdmin == true)
@@ -51,12 +56,16 @@ namespace WpfAppBookStore
                                 ViewWindow viewWindow = new ViewWindow();
                                 viewWindow.Show();
                             }
-                            else
+                            if(item.IsAdmin==false)
                             {
                                 ViewWindow viewWindow = new ViewWindow();
                                 viewWindow.Show();
                                 viewWindow.btnAddBook.Visibility = Visibility.Hidden;
                                 viewWindow.btnAddGenre.Visibility = Visibility.Hidden;
+                                viewWindow.btnEditBook.Visibility = Visibility.Hidden;
+                                viewWindow.btnEditGenre.Visibility = Visibility.Hidden;
+                                viewWindow.btnDelBook.Visibility = Visibility.Hidden;
+                                viewWindow.btnDelGenre.Visibility = Visibility.Hidden;
                             }
 
                         }
@@ -65,11 +74,7 @@ namespace WpfAppBookStore
                             MessageBox.Show("Неверный пароль");
                             return;
                         }
-                        else
-                        {
-                            MessageBox.Show("Пользователь под таким логином не существует");
-                            return;
-                        }
+                        
                     }
 
                 }
