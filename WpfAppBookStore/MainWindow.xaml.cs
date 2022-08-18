@@ -67,18 +67,14 @@ namespace WpfAppBookStore
                                 viewWindow.btnDelBook.Visibility = Visibility.Hidden;
                                 viewWindow.btnDelGenre.Visibility = Visibility.Hidden;
                             }
-
                         }
                         if (item.Login == txtLogin.Text && item.Password != pswPass.Password)
                         {
                             MessageBox.Show("Неверный пароль");
                             return;
-                        }
-                        
+                        }                   
                     }
-
                 }
-
                 else
                 {
                     MessageBox.Show("Не заполнены поля логин или пароль");
@@ -89,6 +85,7 @@ namespace WpfAppBookStore
             {
                 MessageBox.Show("Зарегистрируйтесь!");
             }
+            this.Close();
         }
 
         private void OpenUserView_Executed(object sender, ExecutedRoutedEventArgs e)
