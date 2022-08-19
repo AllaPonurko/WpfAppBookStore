@@ -50,30 +50,38 @@
             <ListBox x:Name="lstGenre"  Width="180" Style="{StaticResource StyleGrid}"  Grid.Row="1" Grid.Column="0"   HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
             <ListBox x:Name="lstBook" MouseDoubleClick="lstBook_MouseDoubleClick" Width="240" Style="{StaticResource StyleGrid}"  Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
 
-
-            <Button x:Name="btnAddGenre" Command="com:WindowCommands.AddGenre"  Content="Добавить жанр" HorizontalAlignment="Center" Margin="0,280,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btnDelGenre" Command="com:WindowCommands.DelGenre"  Content="Удалить жанр" HorizontalAlignment="Center" Margin="0,310,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btnEditGenre" Command="com:WindowCommands.EditGenre"  Content="Редактировать жанр" HorizontalAlignment="Center" Margin="0,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btnAddBook" Command="com:WindowCommands.AddBook" Grid.Column="1" Content="Добавить книгу" HorizontalAlignment="Left" Margin="0,280,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230"/>
-            <Button x:Name="btnDelBook" Command="com:WindowCommands.DelBook" Grid.Column="1" Content="Удалить книгу" HorizontalAlignment="Left" Margin="0,310,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230"/>
-            <Button x:Name="btnEditBook" Command="com:WindowCommands.EditBook" Grid.Column="1" Content="Редактировать книгу" HorizontalAlignment="Left" Margin="0,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230"/>
+            <StackPanel Orientation="Vertical" Margin="10,150,10,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom">
+                <Button x:Name="btnAddGenre" Command="com:WindowCommands.AddGenre"  Content="Добавить жанр" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Bottom" Width="180"/>
+                <Button x:Name="btnDelGenre" Command="com:WindowCommands.DelGenre"  Content="Удалить жанр" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Bottom " Width="180"/>
+            <Button x:Name="btnEditGenre" Command="com:WindowCommands.EditGenre"  Content="Редактировать жанр" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1" Width="180"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10,150,10,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom">
+                <Button x:Name="btnAddBook" Command="com:WindowCommands.AddBook" Grid.Column="1" Content="Добавить книгу" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Bottom" Width="230"/>
+                <Button x:Name="btnDelBook" Command="com:WindowCommands.DelBook" Grid.Column="1" Content="Удалить книгу" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Bottom" Width="230"/>
+                <Button x:Name="btnEditBook" Command="com:WindowCommands.EditBook" Grid.Column="1" Content="Редактировать книгу" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Bottom" Width="230"/>
+            </StackPanel>
             <Label Content="Найти книгу" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cmbSelect" Text="{Binding ElementName=cmbSelect, Path=SelectedItem.ToString()}" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1">
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
+            <ComboBox x:Name="cmbSelect" Text="{Binding ElementName=cmbSelect, Path=SelectedItem.ToString()}" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Grid.Row="1">
                 <ListBoxItem x:Name="byName" Content="По названию" />
                 <ListBoxItem x:Name="byAuther"  Content="По автору"  />
                 <ListBoxItem x:Name="byPrice"  Content="По цене"  />
                 <ListBoxItem x:Name="byGenre"  Content="По жанру"/>
             </ComboBox>
-            <TextBox x:Name="txtParam"  Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Margin="10,27,10,0" Height="26" VerticalAlignment="Top"/>
-            <Button x:Name="btnFind" Content="Подтвердить"  Command="com:WindowCommands.FindBy" Grid.Row="1" Grid.Column="2" Height="36" Margin="10,58,10,270">
+            <TextBox x:Name="txtParam"  Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Height="26" VerticalAlignment="Top"/>
+            <Button x:Name="btnFind" Content="Подтвердить"  Command="com:WindowCommands.FindBy" Grid.Row="1" Grid.Column="2" Height="36" VerticalAlignment="Top">
             </Button>
-            <ListBox x:Name="lstSelect" Grid.Column="2" Grid.Row="1" Style="{StaticResource StyleGrid}" Margin="10,120,10,100"/>
-            <ScrollBar Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Stretch"/>
+                <ListBox x:Name="lstSelect" Grid.Column="2" Grid.Row="1" Style="{StaticResource StyleGrid}" VerticalAlignment="Top"/>
+            </StackPanel>
             <Label Content="Корзина" Grid.Column="3" HorizontalAlignment="Left" Margin="26,9,0,0" FontSize="15" VerticalAlignment="Top"/>
-            <ListBox x:Name="lstBuy"  Grid.Column="3" Grid.Row="1" Style="{StaticResource StyleGrid}" Margin="6,0,27,80"/>
-            <Label Content="Сумма к оплате:" Grid.Column="3" Foreground="White" HorizontalAlignment="Left" Margin="6,309,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtSum" Grid.Column="3" HorizontalAlignment="Left" Margin="10,335,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top">
+                <ListBox x:Name="lstBuy"  Grid.Column="3" Grid.Row="1" Style="{StaticResource StyleGrid}" VerticalAlignment="Top"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom">
+            <Label Content="Сумма к оплате:" Grid.Column="3" Foreground="White" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="txtSum" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
+            <Label VerticalAlignment="Bottom" Height="40"/>
+            </StackPanel>
         </Grid>
 
 

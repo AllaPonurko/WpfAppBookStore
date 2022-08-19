@@ -23,15 +23,7 @@ namespace WpfAppBookStore
         public BookView()
         {
             InitializeComponent();
-            
-            //CommandBinding command1 = new CommandBinding();
-            //command1.Command = WindowCommands.SaveBook;
-            //command1.Executed += SaveBook_Executed;
-            //btnSave.CommandBindings.Add(command1);
-            //CommandBinding command2 = new CommandBinding();
-            //command2.Command = WindowCommands.Cancle;
-            //command2.Executed += Cancle_Executed;
-            //btnCancle.CommandBindings.Add(command2);
+           
         }
 
         private void Cancle_Executed(object sender, ExecutedRoutedEventArgs e)

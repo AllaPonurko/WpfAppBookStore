@@ -8,11 +8,11 @@
         xmlns:view="clr-namespace:WpfAppBookStore.View"
         mc:Ignorable="d"
         Title="BookView" Height="450" Width="800">
-    <!--<Window.Resources>
-        <ListView x:Key="lstGenre">
+    <Window.Resources>
+        <Style x:Key="StyleBookView">
             
-        </ListView>
-    </Window.Resources>-->
+        </Style>
+    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="com:WindowCommands.SaveBook" Executed="SaveBook_Executed"/>
         <CommandBinding Command="com:WindowCommands.Cancle" Executed="Cancle_Executed"/>
@@ -25,7 +25,7 @@
         <Label Content="Цена" HorizontalAlignment="Left" Margin="49,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.729" Width="174" FontSize="16"/>
         <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="322,163,0,0" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Жанр" HorizontalAlignment="Left" Margin="49,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.729" Width="174" FontSize="16"/>
-        <TextBox x:Name="txtGenre" HorizontalAlignment="Left" Margin="322,220,0,0" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="txtGenre" Text="{Binding ElementName=view:ViewWindow.lstGenre, Path=SelectedItem}" HorizontalAlignment="Left" Margin="322,220,0,0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Дата поступления" HorizontalAlignment="Left" Margin="49,277,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.729" Width="174" FontSize="16"/>
         <TextBox x:Name="txtDate" HorizontalAlignment="Left" Margin="322,277,0,0" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Button x:Name="btnSave" Command="com:WindowCommands.SaveBook" Content="Сохранить" HorizontalAlignment="Left" Margin="55,373,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>

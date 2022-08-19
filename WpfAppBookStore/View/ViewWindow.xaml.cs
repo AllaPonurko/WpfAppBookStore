@@ -275,8 +275,6 @@ namespace WpfAppBookStore.View
                 {
                     BookView book = new BookView();
                     book.Show();
-                    book.txtGenre.Text = lstGenre.SelectedItem.ToString();
-                    book.txtGenre.IsReadOnly = true;
                     book.txtDate.Text = DateTime.Now.ToShortDateString();
                 }
             }
@@ -343,13 +341,13 @@ namespace WpfAppBookStore.View
                     lstGenre.Items.Add(item.ToString());
                 }
         }
-
+         double sum = 0;
         private void lstBook_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {double sum = 0;
-            if (MessageBox.Show("Вы хотите добавить книгу в список покупок?", "My Title",
+        {
+            ObservableCollection<Book> books = new ObservableCollection<Book>();
+            if (MessageBox.Show("Вы хотите добавить книгу в список покупок?", "Предварительный подбор",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                ObservableCollection<Book> books = new ObservableCollection<Book>();
                 var b = (from book in MainWindow.dB.books
                          where book.Title == lstBook.SelectedItem.ToString()
                          select book).First();
