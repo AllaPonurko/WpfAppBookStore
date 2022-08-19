@@ -196,7 +196,6 @@ namespace WpfAppBookStore.View
                     MessageBox.Show("Вы действительно хотите удалить книгу?", "Подтверждение удаления", MessageBoxButton.YesNo,
                        MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-
                         var b = (from book in MainWindow.dB.books
                                  where book.Title == lstBook.SelectedItem.ToString()
                                  select book).First();
@@ -357,8 +356,9 @@ namespace WpfAppBookStore.View
                          select book).First();
                 books.Add(b);
                 lstBuy.ItemsSource = books;
+                txtCurPrice.Text = Convert.ToString(b.Price) + ",00 грн.";
                 sum += b.Price;
-                txtSum.Text = Convert.ToString(sum);
+                txtSum.Text = Convert.ToString(sum)+",00 грн.";
             }
 
         }
