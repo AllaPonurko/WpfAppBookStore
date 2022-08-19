@@ -63,10 +63,9 @@ namespace WpfAppBookStore.View
                                 }
                         lstSelect.ItemsSource = books;
                     }
-                    //break;
+                    
                     if (cmbSelect.SelectedIndex == 1)//поиск по автору
                     {
-                                MessageBox.Show(@"Выполнено!");
                                 var b = (from book in MainWindow.dB.books
                                          where book.Author.StartsWith(txtParam.Text)
                                          || book.Author.Contains(txtParam.Text)
@@ -77,7 +76,7 @@ namespace WpfAppBookStore.View
                                 }
                         lstSelect.ItemsSource = books;
                     }
-                    //break;
+                    
                     if (cmbSelect.SelectedIndex == 2)//поиск по цене
                     {
                                 var b = (from book in MainWindow.dB.books
@@ -89,7 +88,7 @@ namespace WpfAppBookStore.View
                                 }
                         lstSelect.ItemsSource = books;
                     }
-                    //break;
+                    
                     if (cmbSelect.SelectedIndex == 3)//поиск по жанру
                     {
                                 var g = (from genre in MainWindow.dB.genres
@@ -107,8 +106,6 @@ namespace WpfAppBookStore.View
                          lstSelect.ItemsSource = books;   
 
                     }
-                    
-
                 
                 if (txtParam.Text == null)
                 {
