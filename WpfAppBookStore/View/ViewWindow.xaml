@@ -62,7 +62,7 @@
             </StackPanel>
             <Label Content="Найти книгу" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top"/>
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
-            <ComboBox x:Name="cmbSelect" Text="{Binding ElementName=cmbSelect, Path=SelectedItem.ToString()}" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Grid.Row="1">
+            <ComboBox x:Name="cmbSelect" Text="{Binding ElementName=cmbSelect, Path=SelectedItem.ToString()}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="170" Grid.Row="1">
                 <ListBoxItem x:Name="byName" Content="По названию" />
                 <ListBoxItem x:Name="byAuther"  Content="По автору"  />
                 <ListBoxItem x:Name="byPrice"  Content="По цене"  />
@@ -78,8 +78,8 @@
                 <ListBox x:Name="lstBuy"  Grid.Column="3" Grid.Row="1" Style="{StaticResource StyleGrid}" VerticalAlignment="Top"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom">
-            <Label Content="Сумма к оплате:" Grid.Column="3" Foreground="White" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="txtSum" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
+            <Label Content="Сумма к оплате:" Grid.Column="3" Foreground="White" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Bottom" FontSize="14"/>
+            <TextBox x:Name="txtSum" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" Text="" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" FontWeight="Bold"/>
             <Label VerticalAlignment="Bottom" Height="40"/>
             </StackPanel>
         </Grid>

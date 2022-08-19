@@ -22,9 +22,9 @@
             <StackPanel Orientation="Vertical">
             <Label Content="Форма регистрации пользователя" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Foreground="#FFF0F065"/>
                 <Label Content="Пользователь" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="16" Foreground="#FFDDDD2F"/>
-                <TextBox x:Name="txtName"  VerticalAlignment="Top" HorizontalAlignment="Center"  TextWrapping="Wrap" Height="40"  Width="120" FontWeight="Bold" FontSize="16"/>
+                <TextBox x:Name="txtName"  VerticalAlignment="Top" HorizontalAlignment="Center"  TextWrapping="Wrap" Height="40"  FontWeight="Bold" FontSize="16"/>
             <Label Content="Пароль" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="#FFCCDA3D"/>
-                <PasswordBox x:Name="pswPass" PasswordChar="*" VerticalAlignment="Top" HorizontalAlignment="Center"  FontSize="16" Width="120" Height="38"/>
+                <PasswordBox x:Name="pswPass" PasswordChar="*" VerticalAlignment="Top" HorizontalAlignment="Center"  FontSize="16"  Height="38"/>
 
                 <Label Content="Повторить пароль"  FontSize="16" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="#FFECDC40"/>
 

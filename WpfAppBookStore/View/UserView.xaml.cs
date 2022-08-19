@@ -22,14 +22,14 @@ namespace WpfAppBookStore.View
         public UserView()
         {
             InitializeComponent();
-            CommandBinding commandBinding1 = new CommandBinding();
-            commandBinding1.Command = WindowCommands.SaveUser;
-            commandBinding1.Executed += SaveUser_Executed;
-            btnSaveUser.CommandBindings.Add(commandBinding1);
-            CommandBinding commandBinding2 = new CommandBinding();
-            commandBinding2.Command= WindowCommands.CancleUser;
-            commandBinding2.Executed+= CancleUser_Executed;
-            btnCancle.CommandBindings.Add(commandBinding2);
+            //CommandBinding commandBinding1 = new CommandBinding();
+            //commandBinding1.Command = WindowCommands.SaveUser;
+            //commandBinding1.Executed += SaveUser_Executed;
+            //btnSaveUser.CommandBindings.Add(commandBinding1);
+            //CommandBinding commandBinding2 = new CommandBinding();
+            //commandBinding2.Command= WindowCommands.CancleUser;
+            //commandBinding2.Executed+= CancleUser_Executed;
+            //btnCancle.CommandBindings.Add(commandBinding2);
         }
 
         private void CancleUser_Executed(object sender, ExecutedRoutedEventArgs e)

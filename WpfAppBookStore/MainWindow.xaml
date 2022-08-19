@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfAppBookStore"
         xmlns:com="clr-namespace:WpfAppBookStore.Commands"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Load_MainWindow">
+        Title="Окно авторизации" Height="450" Width="800" Loaded="Load_MainWindow">
     <Window.CommandBindings>
         <CommandBinding Command="com:WindowCommands.OpenUserView" Executed="OpenUserView_Executed"/>
         <CommandBinding Command="com:WindowCommands.UserEnter" Executed="UserEnter_Executed"/>
@@ -29,7 +29,7 @@
                     <GradientStop Color="#FF0010A0" Offset="0"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Label Content="                    Книжный магазин" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" FontSize="36" FontWeight="Bold" Background="#FF00DCFF" FontFamily="Georgia" FontStyle="Italic" Height="61" RenderTransformOrigin="0.5,0.5">
+            <Label Content="                    Книжный магазин" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" FontSize="36" FontWeight="Bold" Foreground="AliceBlue" Background="DarkBlue" FontFamily="Georgia" FontStyle="Italic" Height="61" RenderTransformOrigin="0.5,0.5">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
@@ -39,12 +39,12 @@
             <Button x:Name="btnRegistr" Style="{StaticResource ButtonMain}" Command="com:WindowCommands.OpenUserView"  Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top"   Width="189" RenderTransformOrigin="0.913,0.44"/>
 
             <StackPanel x:Name="stpUser" Margin="260,100,260,120">
-                <Label Content="Имя пользователя"  Width="149" FontSize="16" Foreground="#FFE7E8EC" HorizontalAlignment="Center" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Visibility="Visible">
+                <Label Content="Имя пользователя"  FontSize="16" Foreground="#FFE7E8EC" HorizontalAlignment="Center" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Visibility="Visible">
 
                 </Label>
                 <TextBox x:Name="txtLogin"   Height="34" FontSize="16" FontWeight="Bold" IsEnabled="False"/>
                 <Label Content="Пароль" Foreground="#FFE7E8EC" FontSize="18" HorizontalAlignment="Center"/>
-                <PasswordBox x:Name="pswPass" Height="34" PasswordChar="*" FontSize="16"  Width="280" IsEnabled="False"/>
+                <PasswordBox x:Name="pswPass" Height="34" PasswordChar="*" FontSize="16" IsEnabled="False"/>
                 <Label Height="14"></Label>
                 <Button x:Name="btnConfirm" Style="{StaticResource ButtonMain}" Command="com:WindowCommands.UserEnter" Content="Подтвердить" Height="30"/>
             </StackPanel>

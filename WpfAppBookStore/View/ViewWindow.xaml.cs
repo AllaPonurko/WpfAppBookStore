@@ -45,12 +45,11 @@ namespace WpfAppBookStore.View
             try
             {
                 ObservableCollection<Book> books = new ObservableCollection<Book>();
-                if (txtParam.Text.Length >= 3&&cmbSelect.SelectedItem!=null)
+                if (txtParam.Text.Length >= 3 && cmbSelect.SelectedItem != null)
                 {
                     books.Clear();
-                    switch (cmbSelect.SelectedIndex)
-                    {
-                        case 0://поиск по названию
+                    
+                        if(cmbSelect.SelectedIndex== 0)//поиск по названию
                             {
                                 var b = (from book in MainWindow.dB.books
                                          where book.Title == txtParam.Text
@@ -62,10 +61,12 @@ namespace WpfAppBookStore.View
                                 {
                                     books.Add(item);
                                 }
-                            }
-                            break;
-                        case 1://поиск по автору
-                            {MessageBox.Show(@"Выполнено!");
+                        lstSelect.ItemsSource = books;
+                    }
+                    //break;
+                    if (cmbSelect.SelectedIndex == 1)//поиск по автору
+                    {
+                                MessageBox.Show(@"Выполнено!");
                                 var b = (from book in MainWindow.dB.books
                                          where book.Author.StartsWith(txtParam.Text)
                                          || book.Author.Contains(txtParam.Text)
@@ -74,10 +75,11 @@ namespace WpfAppBookStore.View
                                 {
                                     books.Add(item);
                                 }
-                            }
-                            break;
-                        case 2://поиск по цене
-                            {
+                        lstSelect.ItemsSource = books;
+                    }
+                    //break;
+                    if (cmbSelect.SelectedIndex == 2)//поиск по цене
+                    {
                                 var b = (from book in MainWindow.dB.books
                                          where book.Price == Convert.ToDouble(txtParam.Text)
                                          select book).ToList();
@@ -85,10 +87,11 @@ namespace WpfAppBookStore.View
                                 {
                                     books.Add(item);
                                 }
-                            }
-                            break;
-                        case 3://поиск по жанру
-                            {
+                        lstSelect.ItemsSource = books;
+                    }
+                    //break;
+                    if (cmbSelect.SelectedIndex == 3)//поиск по жанру
+                    {
                                 var g = (from genre in MainWindow.dB.genres
                                          where genre.Name.StartsWith(txtParam.Text)
                                          || genre.Name.Contains(txtParam.Text)
@@ -101,11 +104,12 @@ namespace WpfAppBookStore.View
                                     books.Add(item);
                                 }
                             }
-                            break;
-                    }
-                    lstSelect.ItemsSource = books;
+                         lstSelect.ItemsSource = books;   
 
-                }
+                    }
+                    
+
+                
                 if (txtParam.Text == null)
                 {
                     MessageBox.Show("Нет параметров для поиска");
@@ -151,11 +155,10 @@ namespace WpfAppBookStore.View
                     bookEdit.txtAuthor.Text = editbook.Author;
                     bookEdit.txtName.Text = editbook.Title;
                     bookEdit.txtPrice.Text = Convert.ToString(editbook.Price);
-                    
+
                     bookEdit.lblId.Visibility = Visibility.Visible;
                     bookEdit.txtId.Visibility = Visibility.Visible;
                     bookEdit.txtId.Text = Convert.ToString(editbook.Id);
-
                 }
 
             }
@@ -192,19 +195,22 @@ namespace WpfAppBookStore.View
                 {
                     MessageBox.Show(" Не выбрана книга!");
                 }
-                if (lstBook.Items != null && lstBook.SelectedItem != null)
+                if (lstBook.Items != null && lstBook.SelectedItem != null &&
+                    MessageBox.Show("Вы действительно хотите удалить книгу?", "Подтверждение удаления", MessageBoxButton.YesNo,
+                       MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    var b = (from book in MainWindow.dB.books
-                             where book.Title == lstBook.SelectedItem.ToString()
-                             select book).First();
-                    var g = (from genre in MainWindow.dB.genres
-                             where genre.Id == b.GenreId
-                             select genre).First();
-                    g.GetBooks.Remove(b);
-                    lstBook.Items.Remove(lstBook.SelectedItem);
-                    MainWindow.dB.books.Remove(b);
-                    MainWindow.dB.SaveChanges();
-                    MessageBox.Show("Книга удалена!");
+
+                        var b = (from book in MainWindow.dB.books
+                                 where book.Title == lstBook.SelectedItem.ToString()
+                                 select book).First();
+                        var g = (from genre in MainWindow.dB.genres
+                                 where genre.Id == b.GenreId
+                                 select genre).First();
+                        g.GetBooks.Remove(b);
+                        lstBook.Items.Remove(lstBook.SelectedItem);
+                        MainWindow.dB.books.Remove(b);
+                        MainWindow.dB.SaveChanges();
+                        MessageBox.Show("Книга удалена!");
                 }
             }
             catch (Exception ex)
@@ -342,7 +348,7 @@ namespace WpfAppBookStore.View
                     lstGenre.Items.Add(item.ToString());
                 }
         }
-         double sum = 0;
+        double sum = 0;
         private void lstBook_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             ObservableCollection<Book> books = new ObservableCollection<Book>();
@@ -357,7 +363,7 @@ namespace WpfAppBookStore.View
                 sum += b.Price;
                 txtSum.Text = Convert.ToString(sum);
             }
-                
+
         }
     }
 }
