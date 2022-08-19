@@ -19,6 +19,7 @@ namespace WpfAppBookStore.Commands
             EditBook = new RoutedCommand("EditBook", typeof(ViewWindow));
             EditGenre = new RoutedCommand("EditGenre", typeof(ViewWindow));
             FindBy = new RoutedCommand("FindByGenre", typeof(ViewWindow));
+            BuyBook = new RoutedCommand("EditBook", typeof(ViewWindow));
 
             SaveGenre = new RoutedCommand("SaveGenre", typeof(GenreView));
             CancleGenre = new RoutedCommand("CancleGenre", typeof(GenreView));
@@ -48,6 +49,7 @@ namespace WpfAppBookStore.Commands
         public static RoutedCommand EditBook { get; set; }
         public static RoutedCommand EditGenre { get; set; }
         public static RoutedCommand FindBy { get; set; }
+        public static RoutedCommand BuyBook { get; set; }
 
     }
 }
