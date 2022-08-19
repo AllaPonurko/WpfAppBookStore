@@ -14,7 +14,7 @@ namespace WpfAppBookStore.DbBookStore
         public DbSet<User> users { get; set; }
         public DB_BookStore()
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
