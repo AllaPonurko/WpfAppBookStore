@@ -9,8 +9,8 @@
         mc:Ignorable="d"
         Title="BookView" Height="450" Width="800">
     <Window.Resources>
-        <Style x:Key="StyleBookView">
-            
+        <Style x:Key="StyleBookView" TargetType="Grid">
+            <Setter Property="Background" Value="Beige"/>
         </Style>
     </Window.Resources>
     <Window.CommandBindings>
@@ -27,11 +27,12 @@
         <Label Content="Жанр" HorizontalAlignment="Left" Margin="49,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.729" Width="174" FontSize="16"/>
         <TextBox x:Name="txtGenre" Text="{Binding ElementName=view:ViewWindow.lstGenre, Path=SelectedItem}" HorizontalAlignment="Left" Margin="322,220,0,0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Дата поступления" HorizontalAlignment="Left" Margin="49,277,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.729" Width="174" FontSize="16"/>
-        <TextBox x:Name="txtDate" HorizontalAlignment="Left" Margin="322,277,0,0" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        
         <Button x:Name="btnSave" Command="com:WindowCommands.SaveBook" Content="Сохранить" HorizontalAlignment="Left" Margin="55,373,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Button x:Name="btnCancle" Command="com:WindowCommands.Cancle"  Content="Отменить" HorizontalAlignment="Left" Margin="322,373,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
         </Button>
         <Label x:Name="lblId"  Content="Идентификатор" Visibility="Hidden"  FontSize="16" HorizontalAlignment="Left" Margin="49,313,0,0" VerticalAlignment="Top" Width="132"/>
         <TextBox x:Name="txtId"  HorizontalAlignment="Left" FontSize="16" Margin="322,320,0,0" Visibility="Hidden" Text=" " TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker Margin="322,277,360,80"  Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short"></DatePicker>
     </Grid>
 </Window>

@@ -39,7 +39,7 @@ namespace WpfAppBookStore.Models
             Title = Title;
             Author = Author;
             Price = Price;
-            dateTime = DateTime.Now;
+            //dateTime = DateTime.Now;
         }
         public override string ToString()
         {

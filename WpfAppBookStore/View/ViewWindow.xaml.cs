@@ -151,7 +151,7 @@ namespace WpfAppBookStore.View
                     bookEdit.txtAuthor.Text = editbook.Author;
                     bookEdit.txtName.Text = editbook.Title;
                     bookEdit.txtPrice.Text = Convert.ToString(editbook.Price);
-                    bookEdit.txtDate.Text = Convert.ToString(editbook.dateTime);
+                    
                     bookEdit.lblId.Visibility = Visibility.Visible;
                     bookEdit.txtId.Visibility = Visibility.Visible;
                     bookEdit.txtId.Text = Convert.ToString(editbook.Id);
@@ -275,7 +275,8 @@ namespace WpfAppBookStore.View
                 {
                     BookView book = new BookView();
                     book.Show();
-                    book.txtDate.Text = DateTime.Now.ToShortDateString();
+                    book.txtGenre.Text = lstGenre.SelectedItem.ToString();
+                    book.txtGenre.IsReadOnly = true;
                 }
             }
             catch (Exception ex)

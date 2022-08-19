@@ -23,7 +23,6 @@ namespace WpfAppBookStore
         public BookView()
         {
             InitializeComponent();
-           
         }
 
         private void Cancle_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -50,7 +49,7 @@ namespace WpfAppBookStore
                         book.Title = txtName.Text;
                         book.Author = txtAuthor.Text;
                         book.Price = Convert.ToDouble(txtPrice.Text);
-                        
+                        book.dateTime = (DateTime)datePicker1.SelectedDate;
                         //var g = (from genre in MainWindow.dB.genres where genre.Name == txtGenre.Text select genre).First();
                         foreach(var item in MainWindow.dB.genres)
                         {
@@ -71,5 +70,7 @@ namespace WpfAppBookStore
             }
             this.Close();
         }
+
+        
     }
 }
