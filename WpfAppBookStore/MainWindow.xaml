@@ -29,11 +29,18 @@
                     <GradientStop Color="#FF0010A0" Offset="0"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Label Content="                    Книжный магазин" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" FontSize="36" FontWeight="Bold" Foreground="AliceBlue" Background="DarkBlue" FontFamily="Georgia" FontStyle="Italic" Height="61" RenderTransformOrigin="0.5,0.5">
+            <Label Content="                                 Мир книг" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" FontSize="36" FontWeight="Bold" Foreground="AliceBlue" Background="DarkBlue" FontFamily="Georgia" FontStyle="Italic" Height="61" RenderTransformOrigin="0.5,0.5">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
+                
             </Label>
+            <DockPanel Margin="300,60,300,330">
+                <Menu  >
+                    <MenuItem x:Name="menuLanguage"  Header="{DynamicResource m_menu_Language}"/>
+                </Menu>
+            </DockPanel>
+            
             <Button x:Name="btnEnter" Style="{StaticResource ButtonMain}"  Content="Вoйти" Command="com:WindowCommands.UserEnter" HorizontalAlignment="Left" Margin="44,102,0,0" VerticalAlignment="Top"  Width="189" Click="btnEnter_Click" Visibility="Visible"/>
             <Label Content="или" HorizontalAlignment="Left" Margin="112,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.635,0.422" Width="52"/>
             <Button x:Name="btnRegistr" Style="{StaticResource ButtonMain}" Command="com:WindowCommands.OpenUserView"  Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top"   Width="189" RenderTransformOrigin="0.913,0.44"/>
